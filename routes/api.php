@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReviewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,11 @@ Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
 
 
-//get user profile
+//show user profile
 Route::get('user/{id}', [UserController::class, 'show']);
 
+//
+Route::delete('user/{id}', [UserController::class, 'destroy']);
+
+//REVIEWS ROUTES
+Route::apiResource('reviews', ReviewsController::class);
