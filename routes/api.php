@@ -20,6 +20,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+//create user
 Route::post('register', [UserController::class, 'register']);
 
+
+//login route
 Route::post('login', [UserController::class, 'login']);
+
+
+//get user profile
+Route::get('user/{id}', [UserController::class, 'show']);
+

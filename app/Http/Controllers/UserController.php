@@ -17,14 +17,31 @@ class UserController extends Controller
         $user->password= Hash::make($req->input('password'));
         $user->save();
         return $user;
-        
-        
     }
 
-    function login() {
-        return "Login API";
+    function login(Request $req) {
+        $user= User::where('email', $req->email)->first();
+        if(!$user || !Hash::check($req->password, $user->password)) {
+            return ["error" => "email or password is incorrect"];
+        }
+        return $user;
     }
 
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $user = USER::where('id', $req->id);
+    }
+
+
+    function update(Request $req) {
+
+    }
 
 }
