@@ -21,7 +21,6 @@ class ReviewsController extends Controller
         } else {
             return "be the first to leave a review!";
         }
-        
     }
 
     /**
